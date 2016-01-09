@@ -1,0 +1,94 @@
+<!-- Copyright (c) 2016 Micael Levi L. C.  -->
+<!--
+Copyright (c) 2015 Michael Rieppel
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="icon" type="image/png" href="doc/github.png"/>
+    <meta charset="UTF-8">
+
+    <title>Gerador de Tabela Verdade</title>
+
+    <script src='truthtable.js' type="text/javascript"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="pagestyle.css">
+
+  </head>
+
+  <body>
+
+    <div id='container'>
+
+      <div id="location"><a href='https://github.com/micalevisk' title="Novas funções foram adicionadas ao projeto original">Editado Por Micael Levi</a></div>
+      <div id='githublink'><a href='https://github.com/mrieppel/TruthTableGenerator'><img src='doc/github.png' alt="original code" title="código original" style="height:25px;"></a></div>
+
+      <div id='title'>Gerador de Tabela Verdade</div>
+
+      <table>
+        <tr>
+          <td> <!-- http://erikasarti.net/html/acentuacao-caracteres-especiais/ -->
+            <table class="symbols">
+              <tr><td align=center><b>S&iacute;mbolos</b></td></tr>
+              <tr><td>Nega&ccedil;&atilde;o</td><td>~</td></tr>
+              <tr><td>Conjun&ccedil;&atilde;o</td><td>&amp;</td></tr>
+              <tr><td>Disjun&ccedil;&atilde;o</td><td>v</td></tr>
+              <tr><td>Condicional</td><td>&gt;</td></tr>
+              <tr><td>Bicondicional</td><td>&lt;&gt;</td></tr>
+              <tr><td>NAND</td><td>|</td></tr>
+              <tr><td>Absurdo</td><td>#</td></tr>
+            </table>
+          </td>
+
+          <td class='space'></td>
+
+          <td style="vertical-align:top;">
+            <table>
+              <tr><th style='text-align:left;'>Exemplos:</th></tr>
+              <tr><td>~A</td></tr>
+              <tr><td>(A &amp; B)</td></tr>
+              <tr><td>(# &gt; (B v ~A))</td></tr>
+              <tr><td>(A &amp; (~B > C))</td></tr>
+              <tr><td>(A &lt;&gt;(BvC)), A, (~B>C)</td></tr>
+            </table>
+          </td>
+
+          <td style="vertical-align:top;">
+            <input type="text" id="in" size="45" placeholder="fórmula(s)">
+          </td>
+
+          <td style="vertical-align:top;">
+            <input type="button" value="Gerar Tabela" onclick="construct();"><br><br>
+            <input type="radio" name="style" id="main" checked>Tabela Principal<br>
+            <input type="radio" name="style" id="full">Tabela Completa<br>
+            <input type="radio" name="style" id="text">Tabela Texto<br>
+            <input type="radio" name="style" id="latex">Tabela LaTeX<br><br>
+            <!-- <input type="checkbox" name="style" id="linhas_criticas" onchange="construct()" title="Se a fórmula passada for um argumento" unchecked><b style="color:rgba(88,47,101,0.95)">Linhas Críticas</b><br> -->
+            <input type="checkbox" id="linhas_criticas" class="check-with-label" onchange="construct()" title="Se a fórmula passada for um argumento"/>
+            <label for="check" class="label-for-check"><b>Linhas Críticas</b></label><br>
+
+            <input type="checkbox" name="style" id="argumento" onchange="construct()" title="Se a fórmula passada for um argumento"/>
+            <b>Validade do Argumento</b><br>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <div id="tt">&nbsp;</div>
+      <br>
+      <p id="validade_argumento"></p>
+    </div>
+
+  </body>
+
+</html>
