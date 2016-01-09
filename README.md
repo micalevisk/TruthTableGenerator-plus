@@ -16,9 +16,9 @@ OBS: Projeto adotado por questões didáticas.
 - Tabela verdade "traduzida" e melhor valores lógicos identificados de forma didática.
 
 Insira várias fórmulas separando-as por vírgulas.
-Selecione *Tabela Principal* para mostrar apenas a coluna do conectivo principal e *Tabela Completa* para mostrar todas as colunas.
-Selecione *Tabela de Texto* para produzir uma tabela de texto simples,
-e *Tabela LaTeX* para gerar um código da tabela formatada para LaTeX.
+Selecione "Tabela Principal" para mostrar apenas a coluna do conectivo principal e "Tabela Completa" para mostrar todas as colunas.
+Selecione "Tabela Texto" para produzir uma tabela de texto simples,
+e "Tabela LaTeX" para gerar um código da tabela formatada para LaTeX.
 
 Para fórmulas que formam um argumento, i.e., premissas separadas por vírgulas e a conclusão no final, marque a opção *Linhas Críticas* para gerar a tabela com a sinalização das linhas críticas. Caso queira verificar a verdade lógica do argumento, marque a opção *Validade do Argumento*.
 
