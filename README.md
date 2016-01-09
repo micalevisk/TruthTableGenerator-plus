@@ -13,7 +13,7 @@ OBS: Projeto adotado por questões didáticas.
 - Identificar linhas críticas de um argumento.
 - Verificar validade de um argumento.
 - Página totalmente traduzida para o Português (Brasil).
-- Tabela verdade "traduzida" e melhor valores lógicos identificados de forma didática.
+- Tabela verdade "traduzida" e valores lógicos identificados de forma didática.
 
 Insira várias fórmulas separando-as por vírgulas.
 Selecione "Tabela Principal" para mostrar apenas a coluna do conectivo principal e "Tabela Completa" para mostrar todas as colunas.
