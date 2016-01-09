@@ -1,7 +1,7 @@
 # Gerador de Tabela Verdade +
 
-
 **Autor do código html e javascript: formatação da página e programa que gera a tabela verdade:**
+
 Copyright (c) 2015 [Michael Rieppel](https://github.com/mrieppel/TruthTableGenerator "Github page")
 
 ----
@@ -27,4 +27,4 @@ functions at the beginning of `truthtable.js`.
 
 
 
-**Versão ao vivo desse programa: micalevisk.github.io/TruthTableGenerator-plus**
+**Versão ao vivo desse programa: http://micalevisk.github.io/TruthTableGenerator-plus**
