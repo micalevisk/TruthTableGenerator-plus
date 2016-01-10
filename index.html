@@ -11,8 +11,12 @@ THE SOFTWARE.
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="pt">
   <head>
+
+    <script>
+      function checkEnterKey(e){ if(e.keyCode == 13) construct(); }
+    </script>
 
     <link rel="icon" type="image/png" href="doc/github.png"/>
     <meta charset="UTF-8">
@@ -30,8 +34,8 @@ THE SOFTWARE.
 
     <div id='container'>
 
-      <div id="location"><a href='https://github.com/mrieppel/TruthTableGenerator' target="_blank" title="Código do projeto">projeto original</a></div>
-      <div id='githublink'><a href='https://github.com/micalevisk/TruthTableGenerator-plus' target="_blank"><img src='doc/github.png' alt="Modificado por Micael Levi" title="código alterado por Micael Levi" style="height:25px;"></a></div>
+      <div id="location"><a href='https://github.com/mrieppel/TruthTableGenerator' target = "_blank" title="Código do projeto oficial">projeto original</a></div>
+      <div id='githublink'><a href='https://github.com/micalevisk/TruthTableGenerator-plus' target = "_blank"><img src='doc/github.png' alt="Modificado por Micael Levi" title="Código alterado por Micael Levi" style="height:25px;"></a></div>
 
       <div id='title'>Gerador de Tabela Verdade</div>
 
@@ -64,7 +68,7 @@ THE SOFTWARE.
           </td>
 
           <td style="vertical-align:top;">
-            <input type="text" id="in" size="45" placeholder="fórmula(s)">
+            <input type="text" id="in" size="45" placeholder="fórmula(s)" onkeypress="checkEnterKey(event)">
           </td>
 
           <td style="vertical-align:top;">
@@ -73,12 +77,12 @@ THE SOFTWARE.
             <input type="radio" name="style" id="full">Tabela Completa<br>
             <input type="radio" name="style" id="text">Tabela Texto<br>
             <input type="radio" name="style" id="latex">Tabela LaTeX<br><br>
+
             <!-- <input type="checkbox" name="style" id="linhas_criticas" onchange="construct()" title="Se a fórmula passada for um argumento" unchecked><b style="color:rgba(88,47,101,0.95)">Linhas Críticas</b><br> -->
             <input type="checkbox" id="linhas_criticas" class="check-with-label" onchange="construct()" title="Se a fórmula passada for um argumento"/>
             <label for="check" class="label-for-check"><b>Linhas Críticas</b></label><br>
 
-            <input type="checkbox" name="style" id="argumento" onchange="construct()" title="Se a fórmula passada for um argumento"/>
-            <b>Validade do Argumento</b><br>
+            <input type="checkbox" name="style" id="argumento" onchange="construct()" title="Se a fórmula passada for um argumento"/><b>Validade do Argumento</b>
           </td>
         </tr>
       </table>
