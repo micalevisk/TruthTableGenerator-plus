@@ -1,12 +1,11 @@
 # Gerador de Tabela Verdade +
 
-**Autor do código html e javascript: formatação da página e programa que gera a tabela verdade:**
-
-Copyright (c) 2015 [Michael Rieppel](https://github.com/mrieppel/TruthTableGenerator "Github page")
+Copyright (c) 2015 [Michael Rieppel](https://github.com/mrieppel/TruthTableGenerator "Github page")<br>
+**Autor do código html e javascript** _(formatação da página e desenvolvedor do programa que gera a tabela verdade)_
 
 ----
 
-OBS: Projeto adotado por questões didáticas.
+<span style="color:red">**OBS:** Projeto adotado por questões didáticas.</span>
 
 ## Funções / Especificações
 - Gerar a tabela verdade de qualquer fórmula bem formada da lógica proposicional.
@@ -15,10 +14,9 @@ OBS: Projeto adotado por questões didáticas.
 - Página totalmente traduzida para o Português (Brasil).
 - Tabela verdade "traduzida" e valores lógicos identificados de forma didática.
 
-Insira várias fórmulas separando-as por vírgulas.
-Selecione "Tabela Principal" para mostrar apenas a coluna do conectivo principal e "Tabela Completa" para mostrar todas as colunas.
-Selecione "Tabela Texto" para produzir uma tabela de texto simples,
-e "Tabela LaTeX" para gerar um código da tabela formatada para LaTeX.
+**Insira várias fórmulas separando-as por vírgulas.**<br>
+Selecione "Tabela Principal" para mostrar apenas a coluna do conectivo principal e "Tabela Completa" para mostrar todas as colunas.<br>
+Selecione "Tabela Texto" para produzir uma tabela de texto simples, e "Tabela LaTeX" para gerar um código da tabela formatada para LaTeX.
 
 Para fórmulas que formam um argumento, i.e., premissas separadas por vírgulas e a conclusão no final, marque a opção *Linhas Críticas* para gerar a tabela com a sinalização das linhas críticas. Caso queira verificar a verdade lógica do argumento, marque a opção *Validade do Argumento*.
 
@@ -27,4 +25,4 @@ functions at the beginning of `truthtable.js`.
 
 
 
-**Versão ao vivo desse programa: http://micalevisk.github.io/TruthTableGenerator-plus**
+__Versão ao vivo desse programa: http://micalevisk.github.io/TruthTableGenerator-plus__
