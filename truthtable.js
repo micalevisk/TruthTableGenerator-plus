@@ -81,7 +81,7 @@ function latexchar(c) {
 function construct() {
 	var time = new Date().getTime();
 	var formulas = document.getElementById('in').value.replace(/ /g,''); // remove whitespace
-	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // v[2.0]2
+	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // [v2.0]2
 
 	var r = badchar(formulas);
 	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')');
@@ -91,8 +91,9 @@ function construct() {
 	var main = document.getElementById('main').checked;
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
+	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
 
-	formulas = formulas.split(/[,:]+/); // v[2.0]1
+	formulas = formulas.split(/[,:]+/); // [v2.0]1
 
 	var trees = formulas.map(parse); // create an array of parse trees
 	const nVariaveis = trees.length;
@@ -122,6 +123,7 @@ function construct() {
 
 		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
 		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
 	}
 	else if(text) {
 		var texttable = textTable(table);
