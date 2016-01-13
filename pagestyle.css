@@ -10,6 +10,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+/* [v2.2]7 */
+@font-face {
+  font-family: 'audimatRegular';
+  font-style:   normal;
+  font-weight:  normal;
+  src: local('audimat regular'), url('fonts/audimat-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Fipps';
+  font-style:   normal;
+  font-weight:  normal;
+  src: local('Fipps'), url('fonts/FIPPS.woff') format('woff');
+}
+@font-face {
+  font-family: 'TNTT3D';
+  font-style:   normal;
+  font-weight:  normal;
+  src: local('True North Textures Two 3D'), url('fonts/TrueNorthTexturesTwo3D-Reg.woff') format('woff');
+}
+
+
 body {
   font-family: "Open Sans", monospace, Verdana, Arial, Helvetica, sans-serif;
   color:#444444;
@@ -58,10 +79,10 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
 
 #title {
   text-align:center;
-  font-size:24px;
+  font-size:25px; 
   margin-top:15px;
-  margin-bottom:30px; /* [v2.2]6 */
-  font-family: Audimat,"Lucida Console", Monaco, monospace, AndaleMono;
+  margin-bottom:40px; /* [v2.2]6 */
+  font-family: TNTT3D, audimatRegular, "Lucida Console", Monaco, monospace, AndaleMono;
 }
 
 #validade_argumento{
