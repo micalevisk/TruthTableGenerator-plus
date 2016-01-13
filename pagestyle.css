@@ -10,6 +10,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+/* [v2.2]8 */
+/*@import url(https://fonts.googleapis.com/css?family=Megrim);*/
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:700);
+
 /* [v2.2]7 */
 @font-face {
   font-family: 'audimatRegular';
@@ -29,7 +33,6 @@ THE SOFTWARE.
   font-weight:  normal;
   src: local('True North Textures Two 3D'), url('fonts/TrueNorthTexturesTwo3D-Reg.woff') format('woff');
 }
-
 
 body {
   font-family: "Open Sans", monospace, Verdana, Arial, Helvetica, sans-serif;
@@ -79,15 +82,15 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
 
 #title {
   text-align:center;
-  font-size:25px; 
+  font-size:25px;
   margin-top:15px;
   margin-bottom:40px; /* [v2.2]6 */
-  font-family: TNTT3D, audimatRegular, "Lucida Console", Monaco, monospace, AndaleMono;
+  font-family: 'Lobster Two', TNTT3D, audimatRegular, "Lucida Console";
 }
 
 #validade_argumento{
-  font-size: 3;
-  font-family: fipps, Monaco, monospace, AndaleMono;
+  font-size: 100%;
+  font-family: Fipps, "Lucida Console";
   text-decoration: blink;
   visibility: hidden; /* [v2.2]2 */
 }
