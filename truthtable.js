@@ -9,6 +9,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+<<<<<<< HEAD
 
 /*************************************************************************************/
 const CHARS_SYMBOLS = {"charFalse":'F', "charTrue": 'V'};
@@ -21,6 +22,35 @@ var mostrarValidadeArgumento = false;
 var quantidadeLinhasCriticas = 0;
 
 /*************************************************************************************/
+=======
+/*************************************************************************************/
+const CHARS_SYMBOLS = {"charFalse":'F', "charTrue": 'V'};
+const IDENTIFICADOR = "&#9668;"; // Para indicar as linhas críticas.
+var validadeArgumento = '';      // string gerada ao habilitar checkbox de verificar validade do argumento.
+
+var linhaResultante = new Array(); // Caracteres de cada linha por premissa.
+var quantidadeLinhasCriticas = 0;
+
+/*************************************************************************************/
+function checkEnterKey(e){ if(e.keyCode == 13) construct(); } // [v2.0]4
+
+// mostra(true) ou oculta(hide) objetos com a id passada. [v2.0]3
+function changeVisibility(idName, visible){
+	const STATE = (visible) ? "visible" : "hidden";
+	document.getElementById(idName).style.visibility = STATE;
+}
+
+// mostra(true) ou oculta(false) objetos de uma classe passada. [v2.0]5
+function changeVisibility_class(className, visible){
+	var elements = document.getElementsByClassName(className);
+	const N = elements.length;
+	const STATE = (visible) ? "visible" : "hidden";
+
+	for (var i = 0; i < N; i++)
+		elements[i].style.visibility = STATE;
+}
+
+>>>>>>> gh-pages
 function htmlchar(c) {
 	switch(c) {
 		case true: return CHARS_SYMBOLS.charTrue;
@@ -31,7 +61,11 @@ function htmlchar(c) {
 		case '>' : return '&rarr;';
 		case '<>' : return '&harr;';
 		case '|' : return '|';
+<<<<<<< HEAD
 		case '#' : return 'F'
+=======
+		case '#' : return 'F';
+>>>>>>> gh-pages
 		default : return c;
 	}
 }
@@ -65,6 +99,7 @@ function latexchar(c) {
 // main construction function
 function construct() {
 	var time = new Date().getTime();
+<<<<<<< HEAD
 
 	var formulas = document.getElementById('in').value.replace(/ /g,'');// remove whitespace
 	if(formulas=='') return alert("Você precisa digitar alguma fórmula."); //return alert("You have to enter a formula.");
@@ -72,10 +107,20 @@ function construct() {
 	var r = badchar(formulas);
 	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')'); //return alert("The string you entered contains the following unrecognized symbol: "+formulas[r]);
 
+=======
+	var formulas = document.getElementById('in').value.replace(/ /g,''); // remove whitespace
+	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // [v2.0]2
+
+	var r = badchar(formulas);
+	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')');
+
+	quantidadeLinhasCriticas = 0;
+>>>>>>> gh-pages
 	var full = document.getElementById('full').checked;
 	var main = document.getElementById('main').checked;
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
+<<<<<<< HEAD
 	mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
 	mostrarValidadeArgumento = document.getElementById('argumento').checked;
 	quantidadeLinhasCriticas = 0;
@@ -83,6 +128,18 @@ function construct() {
 	formulas = formulas.split(','); // create an array of formulas
 	var trees = formulas.map(parse); // create an array of parse trees
 	for(var i=0;i<trees.length;i++) { // adds outermost parentheses if needed
+=======
+	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
+
+	formulas = formulas.split(/[,:]+/); // [v2.0]1
+
+	var trees = formulas.map(parse); // create an array of parse trees
+	const nVariaveis = trees.length;
+
+	if(nVariaveis > 12) return alert("Você ultrapassou o limite de quantidade de variáveis (12).");  // [v2.0]6
+
+	for(var i=0; i < nVariaveis; i++) { // adds outermost parentheses if needed
+>>>>>>> gh-pages
 		if(trees[i].length==0) {
 			formulas[i] = '('+formulas[i]+')';
 			trees[i] = parse(formulas[i]);
@@ -96,14 +153,24 @@ function construct() {
 
 	if(full || main) {
 		var textoResultado = document.getElementById("validade_argumento");
+<<<<<<< HEAD
+=======
+
+>>>>>>> gh-pages
 		validadeArgumento = "Válido";
 		textoResultado.className = "argumentoValido";
 
 		var htmltable = htmlTable(table,trees,main);
 		document.getElementById('tt').innerHTML = htmltable;
 
+<<<<<<< HEAD
 		if(!mostrarValidadeArgumento || quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
 		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+=======
+		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
+		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
+>>>>>>> gh-pages
 	}
 	else if(text) {
 		var texttable = textTable(table);
@@ -117,7 +184,12 @@ function construct() {
 		win.document.close();
 		document.getElementById('tt').innerHTML = '<div class="center" style="text-align:center;color:red;">LaTex tables open in a new window.<br/>If no window opened, make sure your your browser<br/>isn\'t blocking popups.</div>';
 	}
+<<<<<<< HEAD
 	var duration = (new Date().getTime() - time) / 1000;
+=======
+
+	var duration = (new Date().getTime() - time) / 1000; // Duração (em segundos) da geração da tabela.
+>>>>>>> gh-pages
 }
 
 // (Table,[Tree],Boolean) -> String
@@ -183,6 +255,7 @@ function htmlTable(table,trees,flag) {
 				if((j==tbl[i][r].length-1) && (i!=TABLE_LENGTH-1))rw += '<td class="dv"></td><td></td>'
 			}
 		}
+<<<<<<< HEAD
 		if((mostrarLinhasCriticas)&& (ehLinhaCritica)) rw += MARCACAO;
 		return rw+'</tr>';
 	}
@@ -192,6 +265,16 @@ function htmlTable(table,trees,flag) {
  			if(linha.shift() == CHARS_SYMBOLS.charFalse) return false;
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido";
+=======
+		if(ehLinhaCritica) rw += MARCACAO;
+		return rw+'</tr>';
+	}
+
+	function verificarLinha(linha){ // linha = array FIFO; verifica se é linha crítica e a validade do argumento.
+		while(linha.length > 1)	if(linha.shift() == CHARS_SYMBOLS.charFalse) return false;
+		if(linha.shift() == CHARS_SYMBOLS.charFalse){
+			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
+>>>>>>> gh-pages
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
 		}
 		return true;

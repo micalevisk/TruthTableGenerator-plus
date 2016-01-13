@@ -14,10 +14,13 @@ THE SOFTWARE.
 <html lang="pt">
   <head>
 
+<<<<<<< HEAD
     <script>
       function checkEnterKey(e){ if(e.keyCode == 13) construct(); }
     </script>
 
+=======
+>>>>>>> gh-pages
     <link rel="icon" type="image/png" href="doc/github.png"/>
     <meta charset="UTF-8">
 
@@ -72,24 +75,42 @@ THE SOFTWARE.
           </td>
 
           <td style="vertical-align:top;">
+<<<<<<< HEAD
             <input type="button" value="Gerar Tabela" onclick="construct();"><br><br>
+=======
+            <input class="mainButton" type="button" value="Gerar Tabela" onclick="construct()"><br><br> <!-- [v2.1]5 -->
+>>>>>>> gh-pages
             <input type="radio" name="style" id="main" checked>Tabela Principal<br>
             <input type="radio" name="style" id="full">Tabela Completa<br>
             <input type="radio" name="style" id="text">Tabela Texto<br>
             <input type="radio" name="style" id="latex">Tabela LaTeX<br><br>
 
+<<<<<<< HEAD
             <!-- <input type="checkbox" name="style" id="linhas_criticas" onchange="construct()" title="Se a fórmula passada for um argumento" unchecked><b style="color:rgba(88,47,101,0.95)">Linhas Críticas</b><br> -->
             <input type="checkbox" id="linhas_criticas" class="check-with-label" onchange="construct()" title="Se a fórmula passada for um argumento"/>
             <label for="check" class="label-for-check"><b>Linhas Críticas</b></label><br>
 
             <input type="checkbox" name="style" id="argumento" onchange="construct()" title="Se a fórmula passada for um argumento"/>
             <b>Validade do Argumento</b>
+=======
+    			<div id="funcoes_argumento"> <!-- [v2.1]1  &  [v2.1]2  -->
+    				<input type="checkbox" id="linhas_criticas" class="check-with-label" onchange="changeVisibility_class('linhaCriticaIdentificador', this.checked)" title="Se a fórmula passada for um argumento"/> <!-- [v2.1]3 -->
+    				<label for="check" class="label-for-check"><b>Linhas Críticas</b></label><br>
+
+    				<input type="checkbox" name="style" id="argumento" onchange="changeVisibility('validade_argumento', this.checked)" title="Se a fórmula passada for um argumento"/> <!-- [v2.1]4 -->
+    				<b>Validade do Argumento</b>
+    			</div>
+>>>>>>> gh-pages
           </td>
         </tr>
       </table>
 
       <br>
+<<<<<<< HEAD
       <div id="tt">&nbsp;</div>
+=======
+      <div id="tt">&nbsp;</div> <!-- tt = table truth -->
+>>>>>>> gh-pages
       <br>
       <p id="validade_argumento"></p>
     </div>
