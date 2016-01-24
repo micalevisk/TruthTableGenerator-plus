@@ -20,12 +20,14 @@ var quantidadeLinhasCriticas = 0;
 /*************************************************************************************/
 function checkEnterKey(e){ if(e.keyCode == 13) construct(); } // [v2.0]4
 
+// (String, Bool) -> void
 // mostra(true) ou oculta(hide) objetos com a id passada. [v2.0]3
 function changeVisibility(idName, visible){
 	const STATE = (visible) ? "visible" : "hidden";
 	document.getElementById(idName).style.visibility = STATE;
 }
 
+// (String, Bool) -> void
 // mostra(true) ou oculta(false) objetos de uma classe passada. [v2.0]5
 function changeVisibility_class(className, visible){
 	var elements = document.getElementsByClassName(className);
@@ -35,6 +37,7 @@ function changeVisibility_class(className, visible){
 	for (var i = 0; i < N; i++)
 		elements[i].style.visibility = STATE;
 }
+
 
 function htmlchar(c) {
 	switch(c) {
@@ -92,7 +95,7 @@ function construct() {
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
 	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
-
+	
 	formulas = formulas.split(/[,:]+/); // [v2.0]1
 
 	var trees = formulas.map(parse); // create an array of parse trees
@@ -563,7 +566,7 @@ function isB(s) {
 // String -> Int
 // Checks if the string contains any inadmissible characters
 function badchar(s) {
-	var x = ',()~v&<>|#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz';
+	var x = ':,()~v&<>|#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz'; /* [v2.0]7 */
 	for(var i=0;i<s.length;i++) {
 		if(x.indexOf(s[i])<0) {
 			return i;

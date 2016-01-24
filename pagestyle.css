@@ -29,7 +29,7 @@ THE SOFTWARE.
 }
 
 body {
-  font-family: "Open Sans", monospace, Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Verdana, Helvetica, sans-serif;
   color:#444444;
   height:100%;
 }
@@ -139,7 +139,6 @@ table.truth .dv { border-right:1px solid black; }
   color: rgba(88, 47, 101, 0.95);
   background-color: white;
   width: 20px;
-  font-size: 15px;
   visibility: hidden; /* [v2.2]1 */
 }
 
@@ -176,10 +175,10 @@ input[type="button"]{ cursor: pointer; } /* [v2.2]3 */
 	border:1px solid #777373;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
+	color:#5A5A5A;
 	font-family:Verdana;
 	font-size:11px;
-	font-weight:bold;
+	font-weight:bold;;
 	padding:3px 8px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
