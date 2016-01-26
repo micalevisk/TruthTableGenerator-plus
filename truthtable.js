@@ -90,11 +90,17 @@ function construct() {
 	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')');
 
 	quantidadeLinhasCriticas = 0;
+	const ehArgumento = (formulas.indexOf(':') != -1); // [tsk01]
+
 	var full = document.getElementById('full').checked;
 	var main = document.getElementById('main').checked;
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
-	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
+	var mostrarLinhasCriticas = (document.getElementById('linhas_criticas').checked = ehArgumento); // [tsk01]
+	var mostrarValidadeArgumento = (document.getElementById('argumento').checked = ehArgumento);		// [tsk01]
+	changeVisibility('validade_argumento', ehArgumento); // [tsk01]
+
+	//if(formulas.split(/:/g).length - 1) != 1) return alert("Digite apenas uma vez o ':' (dois pontos)");
 
 	formulas = formulas.split(/[,:]+/); // [v2.0]1
 
@@ -182,7 +188,7 @@ function htmlTable(table,trees,flag) {
 		var rw = '<tr>';
 		var currColor = '';
 		var resp = ''; // 'V' ou 'F'.
-		const MARCACAO = '<td class="linhaCriticaIdentificador">' + IDENTIFICADOR + '</td>';
+		const MARCACAO = '<td class="linhaCriticaIdentificador" >' + IDENTIFICADOR + '</td>';
 		var ehLinhaCritica = false;
 		linhaResultante = [];// "zerando" vetor, para a linha corrente ser verificada.
 

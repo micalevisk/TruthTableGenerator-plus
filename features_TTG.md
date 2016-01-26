@@ -2,7 +2,7 @@
 
 ## TASKs [tskX]
 
-1. **Verficar se é argumento** <br>
+1. ~~**Verficar se é argumento**~~ <br>
 Identificar na textfield novo símbolo.Premissas separadas por vírgula e conclusão após ***:*** (&#8866;) <br>
 Auto habilitar _Linhas Críticas_ e _Validade do Argumento_. E adicionar novo exemplo. **e.g.:** <br>
 <img src="http://i.imgur.com/Hnl833H.png">

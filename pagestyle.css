@@ -14,13 +14,13 @@ THE SOFTWARE.
 /*@import url(https://fonts.googleapis.com/css?family=Megrim);*/
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two:700); /* [v2.2]8 */
 
-/* [v2.2]7 */
+/* [v2.2]7
 @font-face {
   font-family: 'audimatRegular';
   font-style:   normal;
   font-weight:  normal;
   src: local('audimat regular'), url('fonts/audimat-regular.woff') format('woff');
-}
+}*/
 @font-face {
   font-family: 'Fipps';
   font-style:   normal;
@@ -79,7 +79,7 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
   font-size:25px;
   margin-top:15px;
   margin-bottom:40px; /* [v2.2]6 */
-  font-family: "Lobster Two", audimatRegular, "Lucida Console";
+  font-family: "Lobster Two", "Lucida Console";
 }
 
 #validade_argumento{
