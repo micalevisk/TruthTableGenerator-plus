@@ -35,7 +35,7 @@ Redefinir pastas _fonts_ aplicando seu verdadeiro objetivo que é incluir fontes
 ---
 ## TESTs [tesX]
 
-1. **Nova função - Tabela para argumento** <br>
+1. ~~**Nova função - Tabela para argumento**~~<br>
 A cada falsidade na conclusão, reportar _(console)_ linha em que o argumento falha.
 
 2. **Definir 'id' para a última coluna** <br>

@@ -95,7 +95,7 @@ function construct() {
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
 	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
-	
+
 	formulas = formulas.split(/[,:]+/); // [v2.0]1
 
 	var trees = formulas.map(parse); // create an array of parse trees
@@ -194,7 +194,7 @@ function htmlTable(table,trees,flag) {
 					if(TABLE_LENGTH > 2){
 						linhaResultante.push(resp);
 						if(i == TABLE_LENGTH-1)
-							if((ehLinhaCritica = verificarLinha(linhaResultante))) quantidadeLinhasCriticas++;
+							if((ehLinhaCritica = verificarLinha(linhaResultante, r))) quantidadeLinhasCriticas++;
 					}
 					if(resp == CHARS_SYMBOLS.charTrue) currColor = 'style="color:green"';
 					else currColor = 'style="color:red"';
@@ -211,11 +211,12 @@ function htmlTable(table,trees,flag) {
 		return rw+'</tr>';
 	}
 
-	function verificarLinha(linha){ // linha = array FIFO; verifica se é linha crítica e a validade do argumento.
+	function verificarLinha(linha, currLine){ // linha = array FIFO; verifica se é linha crítica e a validade do argumento.
 		while(linha.length > 1)	if(linha.shift() == CHARS_SYMBOLS.charFalse) return false;
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
+			console.error("Falha na linha: "+currLine); // [tes01]
 		}
 		return true;
 	}
