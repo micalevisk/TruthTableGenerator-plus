@@ -31,7 +31,7 @@ Adicionar botão ***copiar texto*** ao gerar a _Tabela Texto_ abaixo da tabela g
 2. **Reparar fontes da página** <br>
 Redefinir pastas _fonts_ aplicando seu verdadeiro objetivo que é incluir fontes em página web.
 
-3. **Nova função - Tabela HTML** <br>
+3. ~~**Nova função - Tabela HTML**~~ <br>
 Criar checkbox de ***Exibir numeração*** para mostrar (visible) ou esconder (hidden) os números das linhas.
 
 ---
