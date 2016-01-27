@@ -17,7 +17,7 @@ Duas novas colunas são adicionas ao final ao identificar que é um argumento (p
 Aumentar fonte dos caracteres da tabela gerada;<br>
 Reposicionar a tabela gerada.
 
-4. **Adicionar coluna** ( _depois do [tes5]_ ) <br>
+4. ~~**Adicionar coluna**~~ <br>
 Uma conluna que indica o número da linha de resultados. Começando em 1 e indo até _2^(nVariáveis)_.
 
 
@@ -31,6 +31,8 @@ Adicionar botão ***copiar texto*** ao gerar a _Tabela Texto_ abaixo da tabela g
 2. **Reparar fontes da página** <br>
 Redefinir pastas _fonts_ aplicando seu verdadeiro objetivo que é incluir fontes em página web.
 
+3. **Nova função - Tabela HTML** <br>
+Criar checkbox de ***Exibir numeração*** para mostrar (visible) ou esconder (hidden) os números das linhas.
 
 ---
 ## TESTs [tesX]

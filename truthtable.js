@@ -97,8 +97,12 @@ function construct() {
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
 	var mostrarLinhasCriticas = (document.getElementById('linhas_criticas').checked = ehArgumento); // [tsk01]
-	var mostrarValidadeArgumento = (document.getElementById('argumento').checked = ehArgumento);		// [tsk01]
+	const mostrarNumeroLinhas = document.getElementById('exibir_numero_linhas').checked;						// [v2.0]9
+
+	document.getElementById('argumento').checked = ehArgumento;	// [tsk01]
+
 	changeVisibility('validade_argumento', ehArgumento); // [tsk01]
+	changeVisibility('funcoes_argumento', ehArgumento);	 // [v2.0]8
 
 	//if(formulas.split(/:/g).length - 1) != 1) return alert("Digite apenas uma vez o ':' (dois pontos)");
 
@@ -132,7 +136,9 @@ function construct() {
 
 		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
 		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+
 		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
+		changeVisibility_class('numeroLinha', mostrarNumeroLinhas); // [v2.0]10
 	}
 	else if(text) {
 		var texttable = textTable(table);
@@ -170,6 +176,7 @@ function htmlTable(table,trees,flag) {
 
 	function mkTHrow(tbl) {
 		var rw = '<tr>';
+		rw += '<td></td>'; // [tsk04]
 
 		for(var i=0;i<tbl.length;i++) { // i = table segment
 			for(var j=0;j<tbl[i][0].length;j++) { // row = 0, j = cell
@@ -186,9 +193,13 @@ function htmlTable(table,trees,flag) {
 	function mkTDrow(tbl,r) {
 		const TABLE_LENGTH = tbl.length;
 		var rw = '<tr>';
+
+		const NUMEROLINHA = '<td class="numeroLinha">' + r + '</td>'; // [tsk04]
+		rw += NUMEROLINHA; // [tsk04]
+
 		var currColor = '';
 		var resp = ''; // 'V' ou 'F'.
-		const MARCACAO = '<td class="linhaCriticaIdentificador" >' + IDENTIFICADOR + '</td>';
+		const MARCACAO = '<td class="linhaCriticaIdentificador">' + IDENTIFICADOR + '</td>';
 		var ehLinhaCritica = false;
 		linhaResultante = [];// "zerando" vetor, para a linha corrente ser verificada.
 
@@ -222,7 +233,7 @@ function htmlTable(table,trees,flag) {
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
-			console.error("Falha na linha: "+currLine); // [tes01]
+			//console.error("Falha na linha: "+currLine); // [tes01]
 		}
 		return true;
 	}

@@ -142,6 +142,13 @@ table.truth .dv { border-right:1px solid black; }
   visibility: hidden; /* [v2.2]1 */
 }
 
+.numeroLinha{
+  color: black;
+  opacity: 0.3;
+  filter: Alpha(opacity=30); /* IE8 and earlier */
+  visibility: hidden;
+} /* [tsk04] */
+
 p{
   text-align: center;
   display: block;

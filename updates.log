@@ -21,6 +21,10 @@ _12/01/2016 21:17
 6. Adicionado um limitador de número de variáveis;
 _13/01/2016 20:42
 7. Caractere colon (dois pontos) foi adicionado aos chars válidos;
+_27/01/2016 13:56
+8. Chamada da função que mostra/oculta a div com id 'funcoes_argumento' caso a fórmula seja um argumento ou não;
+9. Variável booleana que retorna se a checkbox está marcada ou não;
+10. Chamada da função que mostra/oculta a numeração da tabela de acordo com a checkbox. Altera a visibilidade dos números da classe 'numeroLinha';
 
 // [v2.1]:
 _11/01/2016 18:57
@@ -31,7 +35,9 @@ _12/01/2016 21:03
 4. Alterado ação ao clicar na checkbox: de gerar tabela para mostrar/esconder parágrafo;
 _13/01/2016 09:13
 5. Classe 'mainButton' adicionada ao botão de gerar tabela;
-
+_27/01/2016 13:34
+6. Classe 'mainButton' removida do botão;
+7. Estilo adcionado para que a função de mostrar/ocultar elementos funcione;
 
 // [v2.2]:
 _12/01/2016 21:03
