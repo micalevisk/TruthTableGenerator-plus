@@ -48,7 +48,6 @@ function htmlchar(c) {
 		case 'v' : return '&or;';
 		case '>' : return '&rarr;';
 		case '<>' : return '&harr;';
-		case '|' : return '|';
 		case '#' : return 'F';
 		default : return c;
 	}
@@ -82,7 +81,7 @@ function latexchar(c) {
 
 // main construction function
 function construct() {
-	var time = new Date().getTime();
+	/* var time = new Date().getTime(); */
 	var formulas = document.getElementById('in').value.replace(/ /g,''); // remove whitespace
 	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // [v2.0]2
 
@@ -153,7 +152,7 @@ function construct() {
 		document.getElementById('tt').innerHTML = '<div class="center" style="text-align:center;color:red;">LaTex tables open in a new window.<br/>If no window opened, make sure your your browser<br/>isn\'t blocking popups.</div>';
 	}
 
-	var duration = (new Date().getTime() - time) / 1000; // Duração (em segundos) da geração da tabela.
+	/* var duration = (new Date().getTime() - time) / 1000; // Duração (em segundos) da geração da tabela. */
 }
 
 // (Table,[Tree],Boolean) -> String
@@ -270,7 +269,11 @@ function textTable(table) {
 	}
 	function bcInd(a) {
 		var bc = [];
-		a.map(function(e,i) {if(e=='<>') {bc.push(i);};});
+		a.map(
+			function(e,i){
+				if(e=='<>') bc.push(i);
+			}
+		);
 		return bc;
 	}
 }
