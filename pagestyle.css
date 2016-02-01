@@ -159,7 +159,7 @@ p{
 p.argumentoInvalido{ color: rgb(204, 51, 51); }
 p.argumentoValido{ color: rgb(48, 80, 48); }
 
-.check-with-label:checked + .label-for-check { color: rgba(88,47,101,0.95); }
+/*.check-with-label:checked + .label-for-check { color: rgba(88,47,101,0.95); } */
 
 ::-webkit-input-placeholder { text-align: center; } /* [v2.2]5 */
 input:-moz-placeholder { text-align: center; }      /* [v2.2]5 */
