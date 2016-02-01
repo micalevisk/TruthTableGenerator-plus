@@ -14,13 +14,13 @@ THE SOFTWARE.
 /*@import url(https://fonts.googleapis.com/css?family=Megrim);*/
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two:700); /* [v2.2]8 */
 
-/* [v2.2]7 */
+/* [v2.2]7
 @font-face {
   font-family: 'audimatRegular';
   font-style:   normal;
   font-weight:  normal;
   src: local('audimat regular'), url('fonts/audimat-regular.woff') format('woff');
-}
+}*/
 @font-face {
   font-family: 'Fipps';
   font-style:   normal;
@@ -29,7 +29,7 @@ THE SOFTWARE.
 }
 
 body {
-  font-family: "Open Sans", monospace, Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", Verdana, Helvetica, sans-serif;
   color:#444444;
   height:100%;
 }
@@ -79,7 +79,7 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
   font-size:25px;
   margin-top:15px;
   margin-bottom:40px; /* [v2.2]6 */
-  font-family: "Lobster Two", audimatRegular, "Lucida Console";
+  font-family: "Lobster Two", "Lucida Console";
 }
 
 #validade_argumento{
@@ -139,9 +139,15 @@ table.truth .dv { border-right:1px solid black; }
   color: rgba(88, 47, 101, 0.95);
   background-color: white;
   width: 20px;
-  font-size: 15px;
   visibility: hidden; /* [v2.2]1 */
 }
+
+.numeroLinha{
+  color: black;
+  opacity: 0.3;
+  filter: Alpha(opacity=30); /* IE8 and earlier */
+  visibility: hidden;
+} /* [tsk04] */
 
 p{
   text-align: center;
@@ -153,7 +159,7 @@ p{
 p.argumentoInvalido{ color: rgb(204, 51, 51); }
 p.argumentoValido{ color: rgb(48, 80, 48); }
 
-.check-with-label:checked + .label-for-check { color: rgba(88,47,101,0.95); }
+/*.check-with-label:checked + .label-for-check { color: rgba(88,47,101,0.95); } */
 
 ::-webkit-input-placeholder { text-align: center; } /* [v2.2]5 */
 input:-moz-placeholder { text-align: center; }      /* [v2.2]5 */
@@ -176,10 +182,10 @@ input[type="button"]{ cursor: pointer; } /* [v2.2]3 */
 	border:1px solid #777373;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
+	color:#5A5A5A;
 	font-family:Verdana;
 	font-size:11px;
-	font-weight:bold;
+	font-weight:bold;;
 	padding:3px 8px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;

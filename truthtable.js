@@ -20,12 +20,14 @@ var quantidadeLinhasCriticas = 0;
 /*************************************************************************************/
 function checkEnterKey(e){ if(e.keyCode == 13) construct(); } // [v2.0]4
 
+// (String, Bool) -> void
 // mostra(true) ou oculta(hide) objetos com a id passada. [v2.0]3
 function changeVisibility(idName, visible){
 	const STATE = (visible) ? "visible" : "hidden";
 	document.getElementById(idName).style.visibility = STATE;
 }
 
+// (String, Bool) -> void
 // mostra(true) ou oculta(false) objetos de uma classe passada. [v2.0]5
 function changeVisibility_class(className, visible){
 	var elements = document.getElementsByClassName(className);
@@ -36,6 +38,7 @@ function changeVisibility_class(className, visible){
 		elements[i].style.visibility = STATE;
 }
 
+
 function htmlchar(c) {
 	switch(c) {
 		case true: return CHARS_SYMBOLS.charTrue;
@@ -45,7 +48,6 @@ function htmlchar(c) {
 		case 'v' : return '&or;';
 		case '>' : return '&rarr;';
 		case '<>' : return '&harr;';
-		case '|' : return '|';
 		case '#' : return 'F';
 		default : return c;
 	}
@@ -79,7 +81,7 @@ function latexchar(c) {
 
 // main construction function
 function construct() {
-	var time = new Date().getTime();
+	/* var time = new Date().getTime(); */
 	var formulas = document.getElementById('in').value.replace(/ /g,''); // remove whitespace
 	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // [v2.0]2
 
@@ -87,11 +89,21 @@ function construct() {
 	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')');
 
 	quantidadeLinhasCriticas = 0;
+	const ehArgumento = (formulas.indexOf(':') != -1); // [tsk01]
+
 	var full = document.getElementById('full').checked;
 	var main = document.getElementById('main').checked;
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
-	var mostrarLinhasCriticas = document.getElementById('linhas_criticas').checked;
+	var mostrarLinhasCriticas = (document.getElementById('linhas_criticas').checked = ehArgumento); // [tsk01]
+	const mostrarNumeroLinhas = document.getElementById('exibir_numero_linhas').checked;						// [v2.0]9
+
+	document.getElementById('argumento').checked = ehArgumento;	// [tsk01]
+
+	changeVisibility('validade_argumento', ehArgumento); // [tsk01]
+	changeVisibility('funcoes_argumento', ehArgumento);	 // [v2.0]8
+
+	//if(formulas.split(/:/g).length - 1) != 1) return alert("Digite apenas uma vez o ':' (dois pontos)");
 
 	formulas = formulas.split(/[,:]+/); // [v2.0]1
 
@@ -123,7 +135,9 @@ function construct() {
 
 		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
 		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+
 		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
+		changeVisibility_class('numeroLinha', mostrarNumeroLinhas); // [v2.0]10
 	}
 	else if(text) {
 		var texttable = textTable(table);
@@ -138,7 +152,7 @@ function construct() {
 		document.getElementById('tt').innerHTML = '<div class="center" style="text-align:center;color:red;">LaTex tables open in a new window.<br/>If no window opened, make sure your your browser<br/>isn\'t blocking popups.</div>';
 	}
 
-	var duration = (new Date().getTime() - time) / 1000; // Duração (em segundos) da geração da tabela.
+	/* var duration = (new Date().getTime() - time) / 1000; // Duração (em segundos) da geração da tabela. */
 }
 
 // (Table,[Tree],Boolean) -> String
@@ -161,6 +175,7 @@ function htmlTable(table,trees,flag) {
 
 	function mkTHrow(tbl) {
 		var rw = '<tr>';
+		rw += '<td></td>'; // [tsk04]
 
 		for(var i=0;i<tbl.length;i++) { // i = table segment
 			for(var j=0;j<tbl[i][0].length;j++) { // row = 0, j = cell
@@ -177,6 +192,10 @@ function htmlTable(table,trees,flag) {
 	function mkTDrow(tbl,r) {
 		const TABLE_LENGTH = tbl.length;
 		var rw = '<tr>';
+
+		const NUMEROLINHA = '<td class="numeroLinha">' + r + '</td>'; // [tsk04]
+		rw += NUMEROLINHA; // [tsk04]
+
 		var currColor = '';
 		var resp = ''; // 'V' ou 'F'.
 		const MARCACAO = '<td class="linhaCriticaIdentificador">' + IDENTIFICADOR + '</td>';
@@ -191,7 +210,7 @@ function htmlTable(table,trees,flag) {
 					if(TABLE_LENGTH > 2){
 						linhaResultante.push(resp);
 						if(i == TABLE_LENGTH-1)
-							if((ehLinhaCritica = verificarLinha(linhaResultante))) quantidadeLinhasCriticas++;
+							if((ehLinhaCritica = verificarLinha(linhaResultante, r))) quantidadeLinhasCriticas++;
 					}
 					if(resp == CHARS_SYMBOLS.charTrue) currColor = 'style="color:green"';
 					else currColor = 'style="color:red"';
@@ -208,11 +227,12 @@ function htmlTable(table,trees,flag) {
 		return rw+'</tr>';
 	}
 
-	function verificarLinha(linha){ // linha = array FIFO; verifica se é linha crítica e a validade do argumento.
+	function verificarLinha(linha, currLine){ // linha = array FIFO; verifica se é linha crítica e a validade do argumento.
 		while(linha.length > 1)	if(linha.shift() == CHARS_SYMBOLS.charFalse) return false;
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
+			//console.error("Falha na linha: "+currLine); // [tes01]
 		}
 		return true;
 	}
@@ -249,7 +269,11 @@ function textTable(table) {
 	}
 	function bcInd(a) {
 		var bc = [];
-		a.map(function(e,i) {if(e=='<>') {bc.push(i);};});
+		a.map(
+			function(e,i){
+				if(e=='<>') bc.push(i);
+			}
+		);
 		return bc;
 	}
 }
@@ -563,7 +587,7 @@ function isB(s) {
 // String -> Int
 // Checks if the string contains any inadmissible characters
 function badchar(s) {
-	var x = ',()~v&<>|#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz';
+	var x = ':,()~v&<>|#ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwxyz'; /* [v2.0]7 */
 	for(var i=0;i<s.length;i++) {
 		if(x.indexOf(s[i])<0) {
 			return i;
