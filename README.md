@@ -13,6 +13,9 @@ Copyright (c) 2015 [Michael Rieppel](https://github.com/mrieppel/TruthTableGener
 - Verificar validade de um argumento.
 - Página totalmente traduzida para o Português (Brasil).
 - Tabela verdade "traduzida" e valores lógicos identificados de forma didática.
+- Opção de mostrar numeração das linhas da tabela.
+- As fbfs que representam um argumento são identificadas pelo programa.
+- Ao gerar a tabela de um argumento, as opções de verificar validade do argumento e identificar as linhas críticas são acionadas.
 
 **Insira várias fórmulas separando-as por vírgulas.**<br>
 Selecione "Tabela Principal" para mostrar apenas a coluna do conectivo principal e "Tabela Completa" para mostrar todas as colunas.<br>
