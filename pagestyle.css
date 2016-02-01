@@ -12,7 +12,7 @@ THE SOFTWARE.
 
 
 /*@import url(https://fonts.googleapis.com/css?family=Megrim);*/
-@import url(https://fonts.googleapis.com/css?family=Lobster+Two:700); /* [v2.2]8 */
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two:700);
 
 /* [v2.2]7
 @font-face {
@@ -54,9 +54,7 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
   left:5px;
 }
 
-#location a {
-  color: rgba(153, 153, 153, 0.6);
-}
+#location a { color: rgba(153, 153, 153, 0.6); }
 
 #githublink {
   height: 50px;
@@ -78,7 +76,7 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
   text-align:center;
   font-size:25px;
   margin-top:15px;
-  margin-bottom:40px; /* [v2.2]6 */
+  margin-bottom:40px;
   font-family: "Lobster Two", "Lucida Console";
 }
 
@@ -86,13 +84,13 @@ a:active {color:#FFA04D;text-decoration:none;}    /* link selecionado */
   font-size: 100%;
   font-family: Fipps, "Lucida Console";
   text-decoration: blink;
-  visibility: hidden; /* [v2.2]2 */
+  visibility: hidden;
 }
 
 table.symbols {
   border:0;
   border-collapse: collapse;
-  cursor: none; /* [v2.2]3 */
+  cursor: none;
 }
 
 table.symbols th {
@@ -139,7 +137,7 @@ table.truth .dv { border-right:1px solid black; }
   color: rgba(88, 47, 101, 0.95);
   background-color: white;
   width: 20px;
-  visibility: hidden; /* [v2.2]1 */
+  visibility: hidden;
 }
 
 .numeroLinha{
@@ -147,7 +145,7 @@ table.truth .dv { border-right:1px solid black; }
   opacity: 0.3;
   filter: Alpha(opacity=30); /* IE8 and earlier */
   visibility: hidden;
-} /* [tsk04] */
+}
 
 p{
   text-align: center;
@@ -159,48 +157,7 @@ p{
 p.argumentoInvalido{ color: rgb(204, 51, 51); }
 p.argumentoValido{ color: rgb(48, 80, 48); }
 
-/*.check-with-label:checked + .label-for-check { color: rgba(88,47,101,0.95); } */
+::-webkit-input-placeholder { text-align: center; }
+input:-moz-placeholder { text-align: center; }
 
-::-webkit-input-placeholder { text-align: center; } /* [v2.2]5 */
-input:-moz-placeholder { text-align: center; }      /* [v2.2]5 */
-
-input[type="button"]{ cursor: pointer; } /* [v2.2]3 */
-
-/* botão gerado com http://www.bestcssbuttongenerator.com/     [v2.2]4 */
-.mainButton {
-  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
-	background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
-  background-color:#f9f9f9;
-	border:1px solid #777373;
-	display:inline-block;
-	cursor:pointer;
-	color:#5A5A5A;
-	font-family:Verdana;
-	font-size:11px;
-	font-weight:bold;;
-	padding:3px 8px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.mainButton:hover {
-  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
-	background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
-	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
-	background-color:#e9e9e9;
-}
-.mainButton:active {
-	position:relative;
-	top:1px;
-}
+input[type="button"]{ cursor: pointer; }

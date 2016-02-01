@@ -18,17 +18,17 @@ var linhaResultante = new Array(); // Caracteres de cada linha por premissa.
 var quantidadeLinhasCriticas = 0;
 
 /*************************************************************************************/
-function checkEnterKey(e){ if(e.keyCode == 13) construct(); } // [v2.0]4
+function checkEnterKey(e){ if(e.keyCode == 13) construct(); }
 
 // (String, Bool) -> void
-// mostra(true) ou oculta(hide) objetos com a id passada. [v2.0]3
+// mostra(true) ou oculta(hide) objetos com a id passada.
 function changeVisibility(idName, visible){
 	const STATE = (visible) ? "visible" : "hidden";
 	document.getElementById(idName).style.visibility = STATE;
 }
 
 // (String, Bool) -> void
-// mostra(true) ou oculta(false) objetos de uma classe passada. [v2.0]5
+// mostra(true) ou oculta(false) objetos de uma classe passada.
 function changeVisibility_class(className, visible){
 	var elements = document.getElementsByClassName(className);
 	const N = elements.length;
@@ -83,34 +83,32 @@ function latexchar(c) {
 function construct() {
 	/* var time = new Date().getTime(); */
 	var formulas = document.getElementById('in').value.replace(/ /g,''); // remove whitespace
-	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada."); // [v2.0]2
+	if(formulas=='') return alert("Você precisa digitar alguma fórmula bem formada.");
 
 	var r = badchar(formulas);
 	if(r>=0) return alert("Você digitou um símbolo não identificado ("+formulas[r]+')');
 
 	quantidadeLinhasCriticas = 0;
-	const ehArgumento = (formulas.indexOf(':') != -1); // [tsk01]
+	const ehArgumento = (formulas.indexOf(':') != -1);
 
 	var full = document.getElementById('full').checked;
 	var main = document.getElementById('main').checked;
 	var text = document.getElementById('text').checked;
 	var latex = document.getElementById('latex').checked;
-	var mostrarLinhasCriticas = (document.getElementById('linhas_criticas').checked = ehArgumento); // [tsk01]
-	const mostrarNumeroLinhas = document.getElementById('exibir_numero_linhas').checked;						// [v2.0]9
+	var mostrarLinhasCriticas = (document.getElementById('linhas_criticas').checked = ehArgumento);
+	const mostrarNumeroLinhas = document.getElementById('exibir_numero_linhas').checked;
 
-	document.getElementById('argumento').checked = ehArgumento;	// [tsk01]
+	document.getElementById('argumento').checked = ehArgumento;
 
-	changeVisibility('validade_argumento', ehArgumento); // [tsk01]
-	changeVisibility('funcoes_argumento', ehArgumento);	 // [v2.0]8
+	changeVisibility('validade_argumento', ehArgumento);
+	changeVisibility('funcoes_argumento', ehArgumento);
 
-	//if(formulas.split(/:/g).length - 1) != 1) return alert("Digite apenas uma vez o ':' (dois pontos)");
-
-	formulas = formulas.split(/[,:]+/); // [v2.0]1
+	formulas = formulas.split(/[,:]+/);
 
 	var trees = formulas.map(parse); // create an array of parse trees
 	const nVariaveis = trees.length;
 
-	if(nVariaveis > 12) return alert("Você ultrapassou o limite de quantidade de variáveis (12).");  // [v2.0]6
+	if(nVariaveis > 12) return alert("Você ultrapassou o limite de quantidade de variáveis (12).");
 
 	for(var i=0; i < nVariaveis; i++) { // adds outermost parentheses if needed
 		if(trees[i].length==0) {
@@ -137,7 +135,7 @@ function construct() {
 		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
 
 		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
-		changeVisibility_class('numeroLinha', mostrarNumeroLinhas); // [v2.0]10
+		changeVisibility_class('numeroLinha', mostrarNumeroLinhas);
 	}
 	else if(text) {
 		var texttable = textTable(table);
@@ -193,8 +191,8 @@ function htmlTable(table,trees,flag) {
 		const TABLE_LENGTH = tbl.length;
 		var rw = '<tr>';
 
-		const NUMEROLINHA = '<td class="numeroLinha">' + r + '</td>'; // [tsk04]
-		rw += NUMEROLINHA; // [tsk04]
+		const NUMEROLINHA = '<td class="numeroLinha">' + r + '</td>';
+		rw += NUMEROLINHA;
 
 		var currColor = '';
 		var resp = ''; // 'V' ou 'F'.
@@ -232,7 +230,7 @@ function htmlTable(table,trees,flag) {
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
-			//console.error("Falha na linha: "+currLine); // [tes01]
+			//console.error("Falha na linha: "+currLine); 
 		}
 		return true;
 	}
