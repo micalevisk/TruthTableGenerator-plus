@@ -10,6 +10,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 /*************************************************************************************/
+"use strict"
 const CHARS_SYMBOLS = {"charFalse":'F', "charTrue": 'V'};
 const IDENTIFICADOR = "&#9668;"; // Para indicar as linhas críticas.
 var validadeArgumento = '';      // string gerada ao habilitar checkbox de verificar validade do argumento.
@@ -230,7 +231,7 @@ function htmlTable(table,trees,flag) {
 		if(linha.shift() == CHARS_SYMBOLS.charFalse){
 			validadeArgumento = "Inválido"; // Encontrou uma conclusão 'F' na linha crítica.
 			document.getElementById("validade_argumento").className = "argumentoInvalido";
-			//console.error("Falha na linha: "+currLine); 
+			//console.error("Falha na linha: "+currLine);
 		}
 		return true;
 	}
