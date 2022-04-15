@@ -132,8 +132,10 @@ function construct() {
 		var htmltable = htmlTable(table,trees,main);
 		document.getElementById('tt').innerHTML = htmltable;
 
-		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "";
-		else textoResultado.innerHTML = "Argumento "+ validadeArgumento;
+		if(quantidadeLinhasCriticas == 0) textoResultado.innerHTML = "É consequência lógica!";
+
+		if (validadeArgumento == "Válido") textoResultado.innerHTML = "É consequência lógica!"; 
+		else textoResultado.innerHTML = "Não é consequência lógica!";
 
 		changeVisibility_class('linhaCriticaIdentificador', mostrarLinhasCriticas);
 		changeVisibility_class('numeroLinha', mostrarNumeroLinhas);
